@@ -35,12 +35,12 @@ def load_dataset(val_ratio):
     train_dataset = DvectorDataset(DB=train_DB, loader=file_loader, transform=transform, spk_to_idx=spk_to_idx)
     valid_dataset = DvectorDataset(DB=valid_DB, loader=file_loader, transform=transform_T, spk_to_idx=spk_to_idx)
     
-    n_classes = len(speaker_list) # How many speakers? 240
+    n_classes = len(speaker_list)
     return train_dataset, valid_dataset, n_classes
 
 def split_train_dev(train_feat_dir, valid_ratio):
     train_valid_DB = read_feats_structure(train_feat_dir)
-    total_len = len(train_valid_DB) # 148642
+    total_len = len(train_valid_DB)
     valid_len = int(total_len * valid_ratio/100.)
     train_len = total_len - valid_len
     shuffled_train_valid_DB = train_valid_DB.sample(frac=1).reset_index(drop=True)
