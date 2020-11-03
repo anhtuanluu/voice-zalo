@@ -11,7 +11,8 @@ def normalize_frames(m,Scale=True):
     else:
         return (m - np.mean(m, axis=0))
 
-audiopath = c.TRAIN_WAV_DIR
+# audiopath = c.TRAIN_WAV_DIR
+audiopath = '/home/tuan/Documents/Train-Test-Data/public-test'
 db = read_DB_structure(audiopath)
 
 feat_and_label={}
